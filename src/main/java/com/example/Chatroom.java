@@ -14,5 +14,13 @@ public class Chatroom {
         this.server = server;
         this.clients = new ArrayList<Client>();
     }
+
+    void addClient(Client client){
+        clients.add(client);
+    }
+
+    void removeClient(Client client){
+        clients.remove(client);
+    }
         
 }

@@ -1,8 +1,8 @@
 package com.example;
 
 public class Owner {
-    String identity;
-    public Owner(String identity) {
-        this.identity = identity;
+    String id;
+    public Owner(String id) {
+        this.id = id;
     }
 }

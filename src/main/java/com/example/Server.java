@@ -13,6 +13,7 @@ import org.json.simple.parser.ParseException;
 public class Server {
     private ServerSocket serverSocket;
     private static ArrayList<Chatroom> chatrooms = new ArrayList<Chatroom>();
+    private static ArrayList<String> clientIDs = new ArrayList<String>();
 
     public Server() {
         chatrooms.add(new Chatroom("MainHall-s1", new Owner(""), this));
@@ -97,6 +98,7 @@ public class Server {
                             out.println(newIdentify);
 
                             if (newIdentify.get("approved").equals("true")) {
+                                clientIDs.add(identity);
                                 client = new Client(identity, server, chatrooms.get(0), this);
                                 chatrooms.get(0).addClient(client);
                                 broadcastRoomMessage(identity, "", "MainHall-s1", chatrooms.get(0));
